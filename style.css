@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --success: #2ecc71;
+    --warning: #f1c40f;
+    --info: #3498db;
+    --error: #e74c3c;
+    --dark: #2c3e50;
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: var(--dark);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+
+
+}
+
+.notifications {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    animation: toaster .4s ease forwards;
+}
+
+@keyframes toaster {
+    0% {
+        transform: translateX(100%);
+    }
+
+    40% {
+        transform: translateX(-5%);
+
+    }
+
+    80% {
+        transform: translateX(0%);
+
+    }
+
+    100% {
+        transform: translateX(-10px);
+
+    }
+
+}
+
+.toast.hide {
+    animation: hideToast .4s ease forwards;
+
+}
+
+
+@keyframes hideToast {
+    0% {
+        transform: translateX(-10%);
+    }
+
+    40% {
+        transform: translateX(0%);
+
+    }
+
+    80% {
+        transform: translateX(-5%);
+
+    }
+
+    100% {
+        transform: translateX(calc(100% + 30px));
+
+    }
+
+}
+
+
+.notifications :where(.toast, .colum) {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.notifications .toast {
+    list-style: none;
+    background-color: #fff;
+    display: inline-block;
+    padding: 15px 18px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.toast::before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 60%;
+    height: 5px;
+    background-color: var(--error);
+    bottom: 0;
+    left: 0;
+    animation: progressbar 5s linear forwards;
+}
+
+@keyframes progressbar {
+    100% {
+        width: 0%;
+    }
+}
+
+.toast.success::before {
+
+    background-color: var(--success);
+
+}
+
+.toast.warning::before {
+
+    background-color: var(--warning);
+
+}
+
+.toast.info::before {
+
+    background-color: var(--info);
+
+}
+
+.toast .colum i {
+    font-size: 1.5rem;
+}
+
+.toast.success i:first-child {
+    color: var(--success);
+}
+
+.toast.warning i:first-child {
+    color: var(--warning);
+}
+
+.toast.error i:first-child {
+    color: var(--error);
+}
+
+.toast.info i:first-child {
+    color: var(--info);
+}
+
+.toast .colum span {
+    font-size: 1.07rem;
+}
+
+.toast i:last-child {
+    color: #828285;
+    cursor: pointer;
+}
+
+.toast i:last-child:hover {
+    color: var(--dark);
+
+}
+
+.btn-area .btn {
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+
+.btn-area .btn.success-btn {
+    background-color: var(--success);
+
+}
+
+.btn-area .btn.wraning-btn {
+    background-color: var(--warning);
+
+}
+
+.btn-area .btn.info-btn {
+    background-color: var(--info);
+
+}
+
+.btn-area .btn.error-btn {
+    background-color: var(--error);
+
+}
+
+.btn-area .btn:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-area .btn.error-btn:hover {
+    background-color: #961a0c;
+}
