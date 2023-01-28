@@ -215,3 +215,22 @@ body {
 .btn-area .btn.error-btn:hover {
     background-color: #961a0c;
 }
+
+
+@media only screen and (max-width: 650px) {
+
+    .notifications {
+        right: 15px;
+    }
+
+    .notifications .toast {
+
+        width: 350px;
+
+
+    }
+
+    .toast .colum span {
+        font-size: .9rem;
+    }
+}
